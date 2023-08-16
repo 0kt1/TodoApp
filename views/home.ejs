@@ -12,13 +12,13 @@
     <h1><center>My Todo List</center></h1>
     <div id="todo-table" class="container">
       <form action="/add/task" method="POST" class="d-flex">
-        <input type="text" name="task" class="form-control" placeholder="Enter Todo" required>
+        <input type="text" name="task" class="form-control" placeholder="Enter your task to do.." required>
         <input type="date" name="date" required>
         <input type="submit" value="Add Todo" class="btn btn-md btn-primary mx-2">
       </form>
       <ul class="list-group my-5">
         <% for(var i=0; i < todos.length; i++){ %>
-          <li class="list-group-item"><i class="my-5"><%=todos[i].date%></i><center><b><%=todos[i].task%></b></center> <end><a href="/delete/<%= todos[i].task %>" class="btn btn-danger btn-sm">Delete</a></end></li>
+          <li class="list-group-item"><i class="my-5"><%=todos[i].date%></i><center><b><%=todos[i].task%></b></center><end><a href="/delete/<%= todos[i].task %>" class="btn btn-danger btn-sm">Delete</a></end></li>
         <% }%>
       </ul>
     </div>
