@@ -4,10 +4,15 @@ var mongoose = require("mongoose");
 
 var Todo = require("./model");
 
-
+const url = "mongodb://127.0.0.1:27017/todo";
 //connection to mongodb
-mongoose.connect("mongodb+srv://kaustubh:kaustubh2023@cluster0.qqkt9lg.mongodb.net/?retryWrites=true&w=majority")
+mongoose.connect(url);
 
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+db.once('open', () => {
+  console.log('Connected to MongoDB');
+});
 
 var urlencodedParser = bodyParser.urlencoded({extended: false})
 
